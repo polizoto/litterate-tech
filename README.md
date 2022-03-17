@@ -4,7 +4,7 @@ social media application for serious techies
 ## Installation and Setup
 
 - install [Node.js](https://nodejs.org/en/download/) and [MySql](https://www.mysql.com/downloads/)
-- `git clone` and `cd` to eCommerce-Server-Express
+- `git clone` and `cd` to litterate-tech
 - `npm install`
 
 ## Features
