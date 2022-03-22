@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
   getAllUser(req, res) {
@@ -48,11 +48,17 @@ const userController = {
       .catch(err => res.status(400).json(err));
   },
 
-  deleteUser({ params }, res) {
-    User.findOneAndDelete({ _id: params.id })
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => res.json(err));
-  },
+  async deleteUser ({ params }, res) {
+    try {
+        let deletedUser = await User.findByIdAndRemove({_id: params.id}, {projection : "thoughts"} );
+        console.log(deletedUser)
+        await Thought.deleteMany({ _id: deletedUser.thoughts  })
+        .then(dbUserData => res.json(dbUserData))
+        }
+     catch (err){
+      console.log(err);
+      }
+     },
 
   addFriend({ params }, res) {
     User.findOneAndUpdate(
@@ -79,7 +85,6 @@ const userController = {
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.json(err));
   }
-
-};
+}
 
 module.exports = userController;
