@@ -9,8 +9,10 @@ social media application for serious techies
 
 ## Features
 
-- Database includes `thoughts` and `reactions`
-- Modularized codebase for scalability
+- database includes `users` and `thoughts` schema 
+- `thoughts` and `reactions` are sub-documents to `users` and `thoughts`, respectively
+- modularized codebase for scalability
+- schema validation
 
 ## Usage
 
@@ -20,17 +22,51 @@ Currently this is the back-end API codebase only. To test the routes:
 2. From the app directory, `node server.js` to start the server on your computer on port 3001
 3. In Postman or Insomnia, enter the `GET`, `POST`, `PUT`, or `DELETE` route you wish to test and the requisite JSON data (for POST and PUT routes); e.g., 
 
-### User Routes
+## Routes
+
+### Users Routes
 
 `/api/users`
+
+- POST a user
+- GET all user
+
+### Single User Routes
+
+`/api/users/:id`
+
+- GET single user
+- PUT (update) a user
+- DEL (delete) a user
+
+### Friends Routes
+
+`/api/users/:id/friends/:friendId`
+
+- POST (add) a friend
+- DELETE a friend
 
 ### Thought Routes
 
 `/api/thoughts`
 
-### Reaction
+- POST (add) a thought
+- GET all thoughts
 
-`/api/thoughts/:thoughtId/reactions`
+### Single Thought Routes
+
+`/api/thoughts/:id`
+
+- GET a single thought
+- PUT (update) a single thought
+- DEL (delete) a thought
+
+### Reaction Routes
+
+`/api/thoughts/:id/reactions`
+
+- POST a reaction
+- DELETE a reaction
 
 ## Video Demonstration
 
