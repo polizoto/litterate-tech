@@ -70,4 +70,4 @@ Currently this is the back-end API codebase only. To test the routes:
 
 ## Video Demonstration
 
-Video Demonstration of Installation and Usage
+[Video Demonstration of Installation and Usage](https://www.dropbox.com/s/q2itw7yapkndmu1/Litterate-Tech.mp4?dl=0)
